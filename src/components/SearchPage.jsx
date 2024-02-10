@@ -29,10 +29,11 @@ console.log(searchItem)
 
 return (
   <div>
-    
   <div className="search-Data">
-       { searchItem.map(movie=> 
-      
+   
+       { searchItem
+       .filter(movie => movie.poster_path) 
+       .map(movie=> 
        <div className="search-item">
 
     
@@ -42,20 +43,45 @@ return (
     {movie.title ? <h3 className='title-card'>{movie.title}</h3>
     : <h3 className='title-card'>{movie.name}</h3>}
 
-    {movie.release_date ? <h4 className='release-date'>{movie.release_date}</h4>
-    : <h4 className='release-date'>{movie.first_air_date}</h4>}
+{movie.release_date ? (
+  <h4 className='release-date'>
+    {new Date(movie.release_date).toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    })}
+  </h4>
+) : (
+  <h4 className='release-date'>
+    {new Date(movie.first_air_date).toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    })}
+  </h4>
+)}
 
     {movie.overview ? <p className='overview'>{movie.overview}</p>
      : null}
 
-    {movie.media_type === 'person' ? <div className='person'><p >{movie.known_for_department}<li className='dot'>hhuh</li></p></div>
-     : <p>failed</p>}
  
 
     </div>
-       )
-}
+       ) 
+} 
 </div>
+{/* {searchItem .filter(elem => elem.media_type === 'person')
+.map(elem=> 
+
+
+   <div className='search-item'>
+     {elem.profile_path ? <img className='movie-card' src={`${img_url}${elem.profile_path}`} alt=''/>
+       : <img className='movie-card' src={`${img_url}${elem.profile_path}`} alt=''/> }
+    <p>{elem.name}</p><p><li className='dot'>{elem.known_for_department}</li></p>
+   
+   </div>
+)} */}
+
  </div>
                
              

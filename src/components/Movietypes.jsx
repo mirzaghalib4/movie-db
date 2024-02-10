@@ -58,7 +58,13 @@ export const Movietypes = ({ movie, isTv }) => {
                     {element?.title || element?.name}
                   </h5>
                   <p className="date">
-                    {element?.release_date || element?.first_air_date}
+                    {new Date(
+                      element?.release_date || element?.first_air_date
+                    ).toLocaleDateString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
                   </p>
                 </div>
               </div>

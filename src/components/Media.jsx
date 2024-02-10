@@ -1,6 +1,7 @@
 import React, { useState, useEffect} from "react";
 import axios from "axios";
 import Modal from "react-modal";
+import { Footer } from "./Footer";
 const img_url = "https://image.tmdb.org/t/p/w500";
 const img_url2 = "https://image.tmdb.org/t/p/w300";
 export const Media = ({ video, searchItem, imagesapi}) => {
@@ -82,7 +83,7 @@ export const Media = ({ video, searchItem, imagesapi}) => {
   const trailerApi = `https://www.youtube.com/embed/${trailerKey}`;
 
   return (
-    <div className="mediaContainer" style={{ display: "flex" }}>
+    <div className="mediaContainer" style={{ display: "flex", }}>
       <h3 style={{ fontSize: "23px" }}>Media</h3>
       <div className="toggleMedia">
         <h3
@@ -207,6 +208,7 @@ export const Media = ({ video, searchItem, imagesapi}) => {
             </div>
           </div>
         )}
+      
 
         <h3
           onClick={() => toggleContainer(2)}
@@ -379,7 +381,9 @@ export const Media = ({ video, searchItem, imagesapi}) => {
             })}
           </div>
         )}
+        
       </div>
+   
     </div>
   );
 };

@@ -9,6 +9,7 @@ import { faBookmark } from "@fortawesome/free-solid-svg-icons";
 import { CircularProgressBar } from "./CircularProgressBar";
 import { Cast } from "./Cast";
 import { Media } from "./Media";
+import { Footer } from "./Footer";
 import axios from "axios";
 const img_url = "https://image.tmdb.org/t/p/w1280";
 const img_url2 = "https://image.tmdb.org/t/p/w300";
@@ -456,10 +457,16 @@ const MovieData = ({ tv }) => {
       </div>
       <div className="cast">
         <Cast cast={cast} />
-        <div className="media">
+        <div className="media" >
           <Media video={video} searchItem={searchItem} imagesapi={imagesapi} />
+          
         </div>
+        <div style={{position:"absolute", top: '163%', width:"100%"}}>
+      <Footer/>
       </div>
+
+      </div>
+      
     </div>
   );
 };

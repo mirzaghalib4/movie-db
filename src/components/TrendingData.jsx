@@ -57,7 +57,13 @@ export const TrendingData = ({ Apidata }) => {
                     fontSize: "small",
                   }}
                 >
-                  {element.release_date || element.first_air_date}
+                  {new Date(
+                      element?.release_date || element?.first_air_date
+                    ).toLocaleDateString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}
                 </p>
               </div>
             );

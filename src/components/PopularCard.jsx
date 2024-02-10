@@ -43,7 +43,14 @@ const PopularCard = ({ movie }) => {
         <h5 className="title" style={{cursor:"pointer"}} onClick={(e) => searchMovies(e)}>
           {movie.title}
         </h5>
-        <p className="date">{movie.release_date}</p>
+
+        <p className="date">
+        {new Date(movie.release_date).toLocaleDateString('en-US', {
+      month: 'long',
+      day: 'numeric',
+      year: 'numeric',
+    })}
+    </p>
       </div>
     </div>
   );

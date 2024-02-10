@@ -15,7 +15,7 @@ export const JoinToday = () => {
           it's in theatres, on TV or available on popular streaming services
           like Netflix, Amazon Prime Video, Zee5, Sun Nxt, and Rooster Teeth.
         </p>
-        <button className="signup-butt"type="submit" value="sign up">Sign Up</button>
+        <button className="signup-butt"type="submit" value="sign up"  onClick={() => window.open('https://www.themoviedb.org/signup', '_blank')}>Sign Up</button>
       </div>
       <div  style={{lineHeight:"21px"}}>
         <ul style={{marginTop:"0px", opacity:"0.7"}}>

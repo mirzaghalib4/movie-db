@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { LatestCard } from "./LatestCard";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCaretDown } from "@fortawesome/free-solid-svg-icons";
 export const LatestTrailers = () => {
   const [popular, setPopular] = useState(true);
   const [streaming, setStreaming] = useState(false);
@@ -13,8 +14,17 @@ export const LatestTrailers = () => {
   const [api3, setapi3] = useState("");
   const [api4, setapi4] = useState("");
   const [api5, setapi5] = useState("");
+  const [selectedOption, setSelectedOption] = useState("Popular");
+  const [visibility, setVisibility] = useState({
+    Popular: false,
+    "Streaming": true,
+    "On TV": true,
+    "For Rent": true,
+    "In Theaters": true,
+  });
   //function to togggle container
-  const toggleContainer = (containerNumber) => {
+
+  const toggleContainer = (containerNumber, option) => {
     if (containerNumber === 1) {
       setPopular(true);
       setStreaming(false);
@@ -45,6 +55,17 @@ export const LatestTrailers = () => {
       setOntv(false);
       setRent(false);
       setTheater(true);
+    }
+    setSelectedOption(option);
+    setVisibility((prevVisibility) => ({
+      ...prevVisibility,
+      [option]: !prevVisibility[option],
+    }));
+    if (option !== selectedOption) {
+      setVisibility((prevVisibility) => ({
+        ...prevVisibility,
+        [selectedOption]: true,
+      }));
     }
   };
   ////////////////////////////////////////////////////
@@ -153,16 +174,18 @@ export const LatestTrailers = () => {
   const fourteenDaysAgo = new Date(currentDate);
   fourteenDaysAgo.setDate(currentDate.getDate() - 14);
   // console.log("14 days ago date", fourteenDaysAgo)
-  // console.log("current date", currentDate)
+  //console.log(Streamingdisplay)
+
   return (
     <div className="latestTrailers">
       <div className="container-header">
         <p
           style={{
-            display: "inline",
+            display: "flex",
             fontSize: "1.5em",
             fontWeight: "500",
             color: "white",
+            whiteSpace: "nowrap",
           }}
         >
           Latest Trailers
@@ -180,7 +203,7 @@ export const LatestTrailers = () => {
           <div class="nav-list" id="navList">
             {" "}
             <button
-              className={`fbuttons ${popular ? "popular" : undefined} hide`}
+              className={`fbuttons ${popular ? "popular" : undefined}`}
               onClick={() => toggleContainer(1)}
             >
               Popular
@@ -211,6 +234,49 @@ export const LatestTrailers = () => {
             </button>
           </div>
         </div>
+        <div class="small-dropdown">
+          <button class="dropbtn" onClick={() => toggleContainer(1, "Popular")}>
+            {" "}
+            {selectedOption} <FontAwesomeIcon icon={faCaretDown} />
+          </button>
+          <div class="dropdown-content">
+          <a
+              href="#"
+              onClick={() => toggleContainer(1, "Popular")}
+              style={{ display: visibility["Popular"] ? "block" : "none" }}
+            >
+              Popular
+              </a>
+            <a
+              href="#"
+              onClick={() => toggleContainer(2, "Streaming")}
+              style={{ display: visibility["Streaming"] ? "block" : "none" }}
+            >
+              Streaming
+            </a>
+            <a
+              href="#"
+              onClick={() => toggleContainer(3, "On TV")}
+              style={{ display: visibility["On TV"] ? "block" : "none" }}
+            >
+              On TV
+            </a>
+            <a
+              href="#"
+              onClick={() => toggleContainer(4, "For Rent")}
+              style={{ display: visibility["For Rent"] ? "block" : "none" }}
+            >
+              For Rent
+            </a>
+            <a
+              href="#"
+              onClick={() => toggleContainer(4, "In Theaters")}
+              style={{ display: visibility["In Theaters"] ? "block" : "none" }}
+            >
+              In Theaters
+            </a>
+          </div>
+        </div>
       </div>
       <div className="fcontent">
         {popular && (
@@ -236,7 +302,7 @@ export const LatestTrailers = () => {
           </div>
         )}
         {theater && (
-          <div className="ftoggle"style={{ height: "200px" }}>
+          <div className="ftoggle" style={{ height: "200px" }}>
             <LatestCard CardApi={api5} />
           </div>
         )}

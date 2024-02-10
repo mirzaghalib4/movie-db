@@ -36,9 +36,6 @@ html{
     width: 151px;
 }
 
-.logo-container{
-
-}
 
 .dropdown{
     width: 3 rem;
@@ -460,9 +457,7 @@ text-align: left;
   
    width: 100%;
   }
-  .aboutMovie{
-    height:1000vh; 
-  }
+  
   .castCard{
     width: fit-content;
  border-radius: 8px;
@@ -586,7 +581,7 @@ color:rgba(1,180,228, 1);
   }
 
   .trending-container{
-    height:451px;
+    height:397px;
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
     margin-top: 10px;
@@ -596,6 +591,7 @@ color:rgba(1,180,228, 1);
     background-position: 50% 200px;
     background-repeat: no-repeat;
     background-size: 1400px;
+    overflow-y: hidden;
     width: 100%;
     z-index: 1;
     position: absolute;
@@ -744,8 +740,9 @@ z-index: 1;
   display: flex;
   width: 60%;
   margin: auto;
-  height: inherit;
+  justify-content: center;
   padding: 80px;
+  padding-bottom: 0px;
   gap:40px;
   color: #fff;
 }
@@ -755,7 +752,7 @@ z-index: 1;
   flex-wrap: wrap;
 }
 .cols h3{
-  font-size: 1.4em;
+  font-size: 1.2em;
   line-height: 1.4em;
   color: #fff;
   white-space: nowrap;
@@ -765,11 +762,21 @@ z-index: 1;
  padding: 0%;
 
 }
+.cols ul{
+  padding: 0px;
+  list-style-type: none;
+  font-family: "Source Sans Pro",Arial,sans-serif;
+  line-height: 23px;
+}
+.cols li{
+  width:max-content;
+}
 .paragraph{
   width:60%;
   margin-right: 40px;
 
 }
+
 .footer-logo{
   width: 130px;
   height: 94px;
@@ -777,10 +784,73 @@ z-index: 1;
   top: -36px;
   right: 0;
   text-align: right;
+  align-self: flex-end
 }
 .footer-button{
   height:40px;
-  width:100px;
+ border-radius: 5px;
+ border: none;
+  color: rgba(1,180,228,1);
+  font-weight: 800;
+  font-size: medium;
+ padding:5px;
+  width: 230px;
+ cursor: pointer;
+  display: inline-block;
+ 
+}
+.nav-list {
+     display: flex;
+     white-space: nowrap;
+     overflow-x: auto; 
+}
+
+/* Style the dropdown button */
+.small-dropdown {
+  position: relative;
+  display: none;
+}
+
+.dropbtn {
+  background:      linear-gradient(to right, rgb(192, 254, 207) 0px, rgb(30, 213, 169) 100%) ;
+  color:rgb(3,37,65);
+
+  border-radius: 20px;
+  border:none;
+
+  padding: 10px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style the dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  z-index: 1;
+  
+}
+
+/* Style the dropdown links */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown content when the dropdown button is clicked */
+.small-dropdown:hover .dropdown-content {
+  display: block;
 }
 /* @media (max-width: 365px) {
   .text{
@@ -852,35 +922,39 @@ gap:20px
     }
     
 }
-  /* @media (max-width: 768px) {
-    .container-header{
-      display: block;
+  @media (max-width: 725px) {
+    
+      .btns{
+        display: none;
+      }
+      .small-dropdown{
+        display: inline-block;
       
+      }
+      .cols h3 {
+        font-size: 1em;
     }
-  .hide{
-    color: red;
-  }
-    .nav-list {
-      display:block;
-      flex-direction: column;
-      position: absolute;
-      top: 60px;
-      left: 0;
-     
-      border-radius:16px;
-      width: 100%;
-      background:      linear-gradient(to right, rgb(192, 254, 207) 0px, rgb(30, 213, 169) 100%) ;
-    }
-    .nav-list.show {
-      display: flex;
-    }
-  
-    .nav-list li {
-      margin-right: 0;
-      margin-bottom: 10px;
+    .footer-logo{
+      display:none;
     }
     
-  } */
+    .footer-content{
+      flex-direction: column;
+      padding:25px;
+      width: 90%;
+      margin: 0 auto;
+    }
+    .footer{
+      height:max-content
+    }
+    .footer-content ul{
+      margin:0px
+    }
+    
+    }
+
+    
+  
  
   @media (max-width: 1031px) {
 .paragraph> p{
@@ -891,6 +965,10 @@ gap:20px
   margin-bottom: 3px;
   margin-top: 5px;
 }
+.footer-content{
+  gap:30px
+}
+
 
   }
   @media (max-width: 831px) {
@@ -899,9 +977,7 @@ gap:20px
     font-size: small;
     
     }
-    .paragraph p{
-     
-    }
+    
     .signup-butt{
       height: 30px;
       text-align: center;
@@ -913,4 +989,15 @@ gap:20px
     .wrapper-background li{
       font-size: small;
     }
+    .cols h3{
+      font-size:1em;
+    }
+    .cols ul{
+      font-size: small;
+    }
+    .footer-content{
+      gap:25px
+    }
+  
+    
   }
