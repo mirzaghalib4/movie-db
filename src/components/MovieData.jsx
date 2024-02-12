@@ -259,7 +259,13 @@ const MovieData = ({ tv }) => {
           ) : null}
 
           <div className="bottom-line">
-            {searchItem ? <span> {searchItem.release_date || searchItem.first_air_date}</span> : null}
+            {searchItem ? <span> {new Date(
+                      searchItem?.release_date || searchItem?.first_air_date
+                    ).toLocaleDateString("en-US", {
+                      month: "long",
+                      day: "numeric",
+                      year: "numeric",
+                    })}</span> : null}
             <ul>
               <li>
                 {searchItem ? (

@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams, useSearchParams } from "react-router-dom";
-
+import { redirect, useNavigate } from "react-router-dom";
 const SearchPage = () => {
     const APIURL = 'https://api.themoviedb.org/3/search/multi?';
     const img_url ='https://image.tmdb.org/t/p/w500';

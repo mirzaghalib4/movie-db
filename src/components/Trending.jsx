@@ -119,11 +119,11 @@ export const Trending = () => {
           <div className="TrendingContent">
             {isTodaySelected ? (
               <div>
-                <TrendingData Apidata={day} />
+                <TrendingData Apidata={day} isTv={false}  />
               </div>
             ) : (
               <div>
-                <TrendingData Apidata={week} />
+                <TrendingData Apidata={week} isTv={false} />
               </div>
             )}
           </div>

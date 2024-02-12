@@ -1,16 +1,24 @@
 import React from "react";
 import { useState } from "react";
 import { CircularProgressBar } from "./CircularProgressBar";
-
+import { redirect, useNavigate } from "react-router-dom";
 const img_url = "https://image.tmdb.org/t/p/w200";
 
-export const TrendingData = ({ Apidata }) => {
+export const TrendingData = ({ Apidata, isTv }) => {
   console.log(Apidata);
+  const navigate = useNavigate();
   return (
     <div>
       {Array.isArray(Apidata) ? (
         <div  style={{ marginTop: "0px", display:"flex", gap:"20px",width:"100%" }}>
           {Apidata.map((element) => {
+             const AboutMovie = async () => {
+              navigate(`/${isTv ? "tv" : "movie"}?id=${element.id}`);
+            };
+            const searchMovies = (e) => {
+              e.preventDefault();
+              AboutMovie();
+            };
             return (
               <div key={element.id} className="">
                 <img
@@ -18,8 +26,10 @@ export const TrendingData = ({ Apidata }) => {
                     height: "225px",
                     width: "150px",
                     borderRadius: "8px",
+                    cursor: "pointer"
                   }}
                   src={`${img_url}${element.poster_path}`}
+                  onClick={(e) => searchMovies(e)}
                 />
                 <div
                   style={{
@@ -44,10 +54,12 @@ export const TrendingData = ({ Apidata }) => {
                     padding: "7px",
                     paddingTop: "0px",
                     paddingBottom: "0px",
-                    marginTop:"0px"
-                  }}
+                    marginTop:"0px",
+                    cursor: "pointer"
+                  }}  onClick={(e) => searchMovies(e)}
                 >
                   {element.title || element.name}
+               
                 </h4>
                 <p
                   style={{
