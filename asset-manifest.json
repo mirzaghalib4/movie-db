@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/MovieDB/static/css/main.831b8e6d.css",
+    "main.js": "/MovieDB/static/js/main.eaebc3a1.js",
+    "static/media/signup.jpg": "/MovieDB/static/media/signup.287da856697814331c36.jpg",
+    "index.html": "/MovieDB/index.html",
+    "main.831b8e6d.css.map": "/MovieDB/static/css/main.831b8e6d.css.map",
+    "main.eaebc3a1.js.map": "/MovieDB/static/js/main.eaebc3a1.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.831b8e6d.css",
+    "static/js/main.eaebc3a1.js"
+  ]
+}
