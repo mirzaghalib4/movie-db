@@ -1,6 +1,6 @@
 import PopularCard from './PopularCard';
 import React, { useState, useEffect } from 'react';
-import {Routes, Route} from 'react-router-dom';
+
 
 import axios from 'axios';
 //const API = 'https://api.themoviedb.org/3/movie/popular?api_key=40ba7941c447be055292d434b41ecaf1&language=en-US&page=1';
@@ -9,7 +9,7 @@ function Movie() {
     const API_URL='https://api.themoviedb.org/3';
 
     const [popular, setpopular] = useState([]);
-    const [searchKey, setSearchKey] = useState('');
+    const [searchKey] = useState('');
 
       const fetchPopular = async () => {
         const type = searchKey ? 'search' : 'discover'
@@ -24,12 +24,12 @@ function Movie() {
     }
     useEffect(() => {
     fetchPopular();
-    },[])
+    })
 
-    const searchMovies = (e) => {
-        e.preventDefault()
-        fetchPopular(searchKey)
-    }
+    // const searchMovies = (e) => {
+    //     e.preventDefault()
+    //     fetchPopular(searchKey)
+    // }
     
 const renderPopular = () =>(
     popular.map(movie => (

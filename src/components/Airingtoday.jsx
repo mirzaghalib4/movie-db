@@ -1,5 +1,5 @@
 import React from "react";
-import { redirect, useNavigate, useSearchParams  } from "react-router-dom";
+import { useSearchParams  } from "react-router-dom";
 
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -9,7 +9,7 @@ import MovieData from "./MovieData";
 
 export const Airingtoday = () => {
   const [Airingtoday, setAiringtoday] = useState("");
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
 
   const fetchApi = async () => {

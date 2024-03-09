@@ -1,10 +1,10 @@
 import React from "react";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { CircularProgressBar } from "./CircularProgressBar";
 
 const PopularCard = ({ movie }) => {
-  const API_key = "40ba7941c447be055292d434b41ecaf1";
+ // const API_key = "40ba7941c447be055292d434b41ecaf1";
   const img_url = "https://image.tmdb.org/t/p/w500";
 
   console.log(movie);

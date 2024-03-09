@@ -1,5 +1,5 @@
 import React from "react";
-import { redirect, useNavigate, useSearchParams } from "react-router-dom";
+import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -8,7 +8,7 @@ import MovieData from "./MovieData";
 
 export const Populartv = () => {
   const [Populartvapi, setpopulartvapi] = useState("");
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const id = searchParams.get("id");
   const fetchApi = async () => {
     const data = await axios.get(

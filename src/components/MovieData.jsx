@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useSearchParams, useNavigate } from "react-router-dom";
+import {  useSearchParams } from "react-router-dom";
 import Modal from "react-modal";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -15,7 +15,7 @@ const img_url = "https://image.tmdb.org/t/p/w1280";
 const img_url2 = "https://image.tmdb.org/t/p/w300";
 
 const MovieData = ({ tv }) => {
-  let [searchParams, setSearchParams] = useSearchParams();
+  let [searchParams] = useSearchParams();
   const [imagesapi, setimagesapi] = useState("");
 
   const id = searchParams.get("id");
@@ -29,7 +29,7 @@ const MovieData = ({ tv }) => {
   const [writer, setwriter] = useState("");
   const [producer, setproducer] = useState("");
   const [screenplay, setscreenplay] = useState("");
-  const [APIURL, setApiurl] = useState("");
+ // const [APIURL, setApiurl] = useState("");
   const path = tv
     ? `https://api.themoviedb.org/3/tv/${id}`
     : `https://api.themoviedb.org/3/movie/${id}`;
@@ -117,7 +117,7 @@ const MovieData = ({ tv }) => {
   useEffect(() => {
     getData();
     console.log("Item", searchItem);
-  }, []);
+  });
   useEffect(() => {
     //Backdrops
     
@@ -152,7 +152,7 @@ const MovieData = ({ tv }) => {
       }
     }
     fetchCredits();
-  }, []);
+  });
 
   console.log("outside fetch", credits);
   const cast = credits?.cast;
@@ -187,9 +187,9 @@ const MovieData = ({ tv }) => {
       for (let i = 0; i < creditsLength; i++) {
         const job = credits.crew[i]?.job;
         if (job === "Director") {
-          console.log("Director job", credits.crew[i]);
+         // console.log("Director job", credits.crew[i]);
           setdirector(credits.crew[i]?.name);
-          console.log("director name", director);
+         // console.log("director name", director);
         } else if (job === "Writer") {
           setwriter(credits.crew[i]?.name);
         } else if (job === "Producer") {
@@ -202,7 +202,7 @@ const MovieData = ({ tv }) => {
   }, [credits]);
 
   const videoAPI = `https://www.youtube.com/embed/${key}`;
-  const [showVideo, setShowVideo] = useState(false);
+  
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const openModal = () => {

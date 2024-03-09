@@ -1,5 +1,5 @@
 import React from "react";
-import { useState } from "react";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowRight} from '@fortawesome/free-solid-svg-icons';
 const img_url = "https://image.tmdb.org/t/p/w200";
@@ -27,7 +27,7 @@ export const Cast = ({ cast }) => {
                   borderTopLeftRadius: "8px",
                   borderTopRightRadius: '8px'
                 }}
-                src={`${img_url}${element.profile_path}`}
+                src={`${img_url}${element.profile_path}`} alt='movie poster'
               />
               <h4 style={{margin:'0px',marginTop:"5px",padding:'7px', paddingBottom:"0px"}}>{element.name}</h4>
               <p style={{margin:'0',marginBottom:'10px', padding:'5px', fontSize: "small"}}>{element.character}</p>

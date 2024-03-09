@@ -78,7 +78,7 @@ console.log("key", vidkey);
 const [isModalOpen, setIsModalOpen] = useState(false);
 
 const openModal = (vidkey) => {
-    if (vidkey!= '') {
+    if (vidkey!== '') {
         setIsModalOpen(true);
       }
 };

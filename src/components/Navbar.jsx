@@ -1,10 +1,10 @@
 import React from "react";
-import { useState } from "react";
+
 
 import logo from "../images/Moviedb.png";
 
 import { Dropdown } from "./Dropdown";
-import { moviesLinks, peopleLinks, tvshowsLinks } from "../util/navigation";
+import { moviesLinks, tvshowsLinks } from "../util/navigation";
 
 const Navbar = () => {
   return (

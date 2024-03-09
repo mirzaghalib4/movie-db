@@ -1,12 +1,12 @@
 import React from "react";
-import { redirect, useNavigate } from "react-router-dom";
+
 import { useEffect, useState } from "react";
 import axios from "axios";
 
 import { Movietypes } from "./Movietypes";
 
 
-export const Nowplaying = ({}) => {
+export const Nowplaying = () => {
   const [NowplayingApi, setNowplayingapi] = useState("");
 
   const fetchApi = async () => {

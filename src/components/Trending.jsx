@@ -4,7 +4,7 @@ import { TrendingData } from "./TrendingData";
 
 export const Trending = () => {
   const [isTodaySelected, setIsTodaySelected] = useState(true);
-  const [changeColor, setChangeColor] = useState(true);
+  //const [changeColor, setChangeColor] = useState(true);
   const [day, setday] = useState("");
   const [week, setweek] = useState("");
 
@@ -31,7 +31,7 @@ export const Trending = () => {
       .catch(function (error) {
         console.error(error);
       });
-  }, []);
+  }, [day]);
   useEffect(() => {
     const options2 = {
       method: "GET",
@@ -52,7 +52,7 @@ export const Trending = () => {
       .catch(function (error) {
         console.error(error);
       });
-  }, []);
+  }, [week]);
 
   const buttonStyles = {
     background: isTodaySelected

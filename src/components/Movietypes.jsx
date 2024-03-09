@@ -1,12 +1,12 @@
 import React from "react";
-import { redirect, useNavigate } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
 import { CircularProgressBar } from "./CircularProgressBar";
-import MovieData from "./MovieData";
+//import MovieData from "./MovieData";
 
 export const Movietypes = ({ movie, isTv }) => {
   console.log("value of tv in movietypes");
 
-  const API_key = "40ba7941c447be055292d434b41ecaf1";
+  //const API_key = "40ba7941c447be055292d434b41ecaf1";
   const img_url = "https://image.tmdb.org/t/p/w500";
   const navigate = useNavigate();
 

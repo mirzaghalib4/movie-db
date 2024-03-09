@@ -1,7 +1,7 @@
 import React from "react";
-import { useState } from "react";
+
 import { CircularProgressBar } from "./CircularProgressBar";
-import { redirect, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const img_url = "https://image.tmdb.org/t/p/w200";
 
 export const TrendingData = ({ Apidata, isTv }) => {
@@ -28,6 +28,7 @@ export const TrendingData = ({ Apidata, isTv }) => {
                     borderRadius: "8px",
                     cursor: "pointer"
                   }}
+                  alt="movie poster"
                   src={`${img_url}${element.poster_path}`}
                   onClick={(e) => searchMovies(e)}
                 />
@@ -36,7 +37,7 @@ export const TrendingData = ({ Apidata, isTv }) => {
                     marginTop: "-30px",
                     position: "relative",
                     zIndex: "11",
-                    marginBottom: "10px",
+                  
                     color: "white",
                     fontSize: "11px",
                     marginBottom:"0px"

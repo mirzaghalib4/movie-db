@@ -17,7 +17,7 @@ export const LatestTrailers = () => {
   const [selectedOption, setSelectedOption] = useState("Popular");
   const [visibility, setVisibility] = useState({
     Popular: false,
-    "Streaming": true,
+    Streaming: true,
     "On TV": true,
     "For Rent": true,
     "In Theaters": true,
@@ -240,41 +240,39 @@ export const LatestTrailers = () => {
             {selectedOption} <FontAwesomeIcon icon={faCaretDown} />
           </button>
           <div class="dropdown-content">
-          <a
-              href="#"
+            <span
+            
               onClick={() => toggleContainer(1, "Popular")}
               style={{ display: visibility["Popular"] ? "block" : "none" }}
             >
               Popular
-              </a>
-            <a
-              href="#"
+            </span>
+            <span
               onClick={() => toggleContainer(2, "Streaming")}
               style={{ display: visibility["Streaming"] ? "block" : "none" }}
             >
               Streaming
-            </a>
-            <a
-              href="#"
+            </span>
+            <span
               onClick={() => toggleContainer(3, "On TV")}
               style={{ display: visibility["On TV"] ? "block" : "none" }}
             >
               On TV
-            </a>
-            <a
-              href="#"
+            </span>
+            <span
+              // href="#"
               onClick={() => toggleContainer(4, "For Rent")}
               style={{ display: visibility["For Rent"] ? "block" : "none" }}
             >
               For Rent
-            </a>
-            <a
-              href="#"
+            </span>
+            <span
+              // href="#"
               onClick={() => toggleContainer(4, "In Theaters")}
               style={{ display: visibility["In Theaters"] ? "block" : "none" }}
             >
               In Theaters
-            </a>
+            </span>
           </div>
         </div>
       </div>

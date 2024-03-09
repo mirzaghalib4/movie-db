@@ -12,7 +12,7 @@ export const CircularProgressBar = ({ percent, width, height }) => {
       className="progress-bar"
       role="progressbar"
       aria-valuenow={percent}
-      aria-valumin="0"
+      // aria-valumin="0"
       aria-valuemax="100"
     >
       {percent}<sup>%</sup>

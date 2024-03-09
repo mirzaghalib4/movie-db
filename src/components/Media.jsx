@@ -1,7 +1,7 @@
 import React, { useState, useEffect} from "react";
-import axios from "axios";
+
 import Modal from "react-modal";
-import { Footer } from "./Footer";
+
 const img_url = "https://image.tmdb.org/t/p/w500";
 const img_url2 = "https://image.tmdb.org/t/p/w300";
 export const Media = ({ video, searchItem, imagesapi}) => {
@@ -172,6 +172,7 @@ export const Media = ({ video, searchItem, imagesapi}) => {
                   marginTop: "-32px",
                   zIndex: "1",
                 }}
+                alt=' movie poster'
                 src={`https://i.ytimg.com/vi/${trailerKey}/hqdefault.jpg`}
               ></img>
               <button className="play-button">
@@ -298,6 +299,7 @@ export const Media = ({ video, searchItem, imagesapi}) => {
                       marginTop: "-50px",
                       zIndex: "1",
                     }}
+                    alt="movie poster"
                     src={`https://i.ytimg.com/vi/${element.key}/hqdefault.jpg`}
                   ></img>
 
@@ -356,6 +358,7 @@ export const Media = ({ video, searchItem, imagesapi}) => {
                       marginTop: "-50px",
                       zIndex: "1",
                     }}
+                    alt="movie poster"
                     src={`${img_url}${element.file_path}`}
                   ></img>
                 </div>
